@@ -1,8 +1,6 @@
 <?php
 
-//echo "login";
 include("include/header.php");
-//var_dump($data);
 
 ?>
 
@@ -11,7 +9,7 @@ include("include/header.php");
 <h1>Paddle Game</h1>
 
 <h2>Game</h2>
-    <a class="otherlink" href="highscore"> Highscore</a>
+    <a class="otherlink" href="<?php echo APP_PATH ?>/game/highscore"> Highscore</a>
     <div id="content">
     <p class="errormsg"><?php echo $data['error'] ?? ""; ?></p>
         

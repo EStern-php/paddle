@@ -18,8 +18,7 @@ class game extends Controller{
             header("Location: http://localhost/racer/game/");
             exit();
         }
-        
-      //  $this->index();
+  
     }
     public function index(){
         $data = [

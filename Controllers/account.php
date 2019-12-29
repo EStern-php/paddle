@@ -11,7 +11,7 @@ class account extends Controller{
         }else{
             echo "logout";
            
-            header("Location: http://localhost/racer/account/");
+            header("Location: ".APP_PATH."/account/login");
             exit();
         }
         
@@ -20,7 +20,7 @@ class account extends Controller{
             if($action == "logout"){
                 echo "logout";
             }else{
-                header("Location: http://localhost/racer/game/");
+                header("Location: ".APP_PATH."/racer/game/");
                 exit();
             }
             
@@ -35,19 +35,19 @@ class account extends Controller{
         if(isset($_SESSION['user'])){
             //om man är inloggad så redirecta till game.php så den controllern tar över.
             echo "inloggad";
-            header("Location: http://localhost/racer/game/");
+            header("Location: ".APP_PATH."/game/");
             exit();
         }else{
             $data = [
-                "css" => ["css/test.css"],
+                "css" => [APP_PATH."/css/test.css"],
                 "js" => "js"
             ];
             
             $this->loadView("login",$data);
-           // echo"sekl";
+           
         }
         
-       // echo "view";
+      
     }
     public function logout(){
         unset ($_SESSION["user"]);
@@ -101,7 +101,7 @@ class account extends Controller{
                 $this->model->loginUser($userid);
                  var_dump($_SESSION['user']);
       
-                 header("Location: http://localhost/racer/game/");
+                 header("Location: ".APP_PATH."game/");
                 exit();
               
                 

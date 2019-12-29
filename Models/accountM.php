@@ -46,10 +46,8 @@ class accountM extends Model{
         $stmt->execute();
         $res = $stmt->fetch();
         if($res){
-           // var_dump($res);
             
             $_SESSION['user'] = $uid;
-            
             return $res;
         }
         

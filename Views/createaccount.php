@@ -1,8 +1,7 @@
 <?php
 
-//echo "login";
 include("include/header.php");
-//var_dump($data);
+
 
 ?>
 
@@ -29,7 +28,7 @@ include("include/header.php");
   </div>
 
   <div class="container">
-      <span class="psw"><a href="login">Login</a></span>
+      <span class="psw"><a href="<?php echo APP_PATH ?>/Account/">Login</a></span>
     <span class="psw">Forgot <a href="#">password?</a></span>
   </div>
 </form>

@@ -17,17 +17,7 @@ class Controller{
              require_once $path . $class .'.php';
         }
        spl_autoload_register('loadModels');
-     /*   $url = $_SERVER['REQUEST_URI'];
-        $url = array_filter(explode('/', $url));
-        $this->controller = $url[2] ?? "Account";
-        $this->action = $url[3] ?? "index";
-        
-        var_dump($url);
-        var_dump($this->controller);
-        $this->loadController($this->controller);
-        $fa = new account();*/
-      //  $fa->this->action();
-      //  spl_autoload_register('loadView');
+
         
     }
     public function getController(){
@@ -36,13 +26,10 @@ class Controller{
         $this->controller = $url[2] ?? "Account";
         $this->action = $url[3] ?? "index";
         
-        //var_dump($url);
-     //   var_dump($this->action);
+
         $this->loadController($this->controller);
         new $this->controller($this->action);
-        //$fa->index();
-        //$action = $url[2] ?? "";
-        
+
     }
     
     function loadController($class){

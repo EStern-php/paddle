@@ -167,9 +167,9 @@ include("include/header.php");
                 if(x > paddleX && x < paddleX + paddleWidth) {
                     dy = -dy;
                 }else{
-                   
+                    
                     $.ajax({
-                        type: "POST" ,url: "http://localhost/racer/game/addscore/", data: {score:score}, success: function(result){
+                        type: "POST" ,url: "<?php echo APP_PATH; ?>/game/addscore/", data: {score:score}, success: function(result){
                             console.log(result);
                             alert("GAME OVER");
                         }

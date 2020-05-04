@@ -6,7 +6,7 @@ class game extends Controller{
         
         if(!isset($_SESSION['user'])){
            
-            header("Location: http://localhost/racer/account/");
+            header("Location: ".APP_PATH."/account/");
             exit();
         }
         
@@ -15,7 +15,7 @@ class game extends Controller{
         if(method_exists($this, $action)){
             $this->$action();
         }else{
-            header("Location: http://localhost/racer/game/");
+            header("Location: ".APP_PATH."/game/");
             exit();
         }
   

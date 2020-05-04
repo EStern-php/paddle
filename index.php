@@ -1,13 +1,11 @@
 <?php
-
-include('Controllers/controller.php');
 include('settings.php');
+include('Controllers/controller.php');
 
 
 
-
-$racer = new Controller();
-$racer->getController();
+$paddle = new Controller();
+$paddle->getController();
 
 
 

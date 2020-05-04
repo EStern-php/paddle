@@ -1,7 +1,7 @@
     Options +FollowSymLinks
     RewriteEngine on
 
-    RewriteBase /racer/
+    RewriteBase /paddle/
 
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d

@@ -13,11 +13,10 @@ class Controller{
     public function __construct(){
        session_start();
         function loadModels($class) {
-             $path = $_SERVER['DOCUMENT_ROOT'] . '/racer/Models/';
+             $path = $_SERVER['DOCUMENT_ROOT'].APP_PATH.'/Models/';
              require_once $path . $class .'.php';
         }
        spl_autoload_register('loadModels');
-
         
     }
     public function getController(){
@@ -34,7 +33,7 @@ class Controller{
     
     function loadController($class){
         try{
-             $path = $_SERVER['DOCUMENT_ROOT'] . '/racer/Controllers/';
+             $path = $_SERVER['DOCUMENT_ROOT'] .APP_PATH.'/Controllers/';
             if(!file_exists($path . $class .'.php')){
                 throw new Exception("Couldn´t load controller");
             }else{
@@ -51,7 +50,7 @@ class Controller{
     function loadView($class,$data = null){
        
         try{
-           $path = $_SERVER['DOCUMENT_ROOT'] . '/racer/Views/';
+           $path = $_SERVER['DOCUMENT_ROOT'].APP_PATH.'/Views/';
             if(!file_exists($path . $class .'.php')){
                 throw new Exception("Couldn´t load View");
             }else{

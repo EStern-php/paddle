@@ -4,6 +4,7 @@
 class account extends Controller{
     
     public function __construct($action){
+        
        
         $this->model = new accountM();
         if(method_exists($this, $action)){
@@ -20,7 +21,7 @@ class account extends Controller{
             if($action == "logout"){
                 echo "logout";
             }else{
-                header("Location: ".APP_PATH."/racer/game/");
+                header("Location: ".APP_PATH."/game/");
                 exit();
             }
             
@@ -34,7 +35,6 @@ class account extends Controller{
         
         if(isset($_SESSION['user'])){
             //om man är inloggad så redirecta till game.php så den controllern tar över.
-            echo "inloggad";
             header("Location: ".APP_PATH."/game/");
             exit();
         }else{
@@ -52,12 +52,13 @@ class account extends Controller{
     public function logout(){
         unset ($_SESSION["user"]);
         $data = [
-                "css" => ["../css/test.css"],
+                "css" => [APP_PATH."/css/test.css"],
                 "js" => "js",
                 "error" => "You have been logged out."
             ];
             
-        $this->loadView("login",$data);
+        header("Location: ".APP_PATH."/account/login");
+        exit();
     }
     public function createUser(){
         //Kolla om newuser är satt och försök i så fall skapa ny user. Annars visas bara vyn.
@@ -65,7 +66,7 @@ class account extends Controller{
         if(isset($_POST['newuser'])){
             //Kollar bara så de båda fälten för lösenord stämmer. Stämmer det inte så får man ett felmeddelande. Borde byggas in fler kontroller på t.ex. längd.
             if($_POST['pass'] == $_POST['repassword']){
-                var_dump($_POST['pass']);
+
                 
                 $pass = $this->model->hashPass($_POST['pass']);
                 $dbData = [];
@@ -83,7 +84,7 @@ class account extends Controller{
             }
         }
         $data = [
-                "css" => ["../css/test.css"],
+                "css" => [APP_PATH."/css/test.css"],
                 "js" => "js",
                 "error" => $errormsg
             ];
@@ -99,9 +100,8 @@ class account extends Controller{
            
             if($userid != false){
                 $this->model->loginUser($userid);
-                 var_dump($_SESSION['user']);
       
-                 header("Location: ".APP_PATH."game/");
+                 header("Location: ".APP_PATH."/game/");
                 exit();
               
                 
@@ -110,7 +110,7 @@ class account extends Controller{
             }
         }
         $data = [
-                "css" => ["../css/test.css"],
+                "css" => [APP_PATH."/css/test.css"],
                 "js" => "js",
                 "error" => $errormsg
             ];
